@@ -144,5 +144,5 @@ const ProjectModule = (function() {
 module.exports = {
     firstName: 'Maksim',
     lastName: 'Shevjakov',
-    task: ProjectModule.getInstance()
+    task: ProjectModule
 }
