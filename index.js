@@ -146,4 +146,8 @@ module.exports = {
     firstName: 'Maksim',
     lastName: 'Shevjakov',
     task: ProjectModule
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> 8e7eeeb92d67e730c6ebde2176cf971188cfc0dc
