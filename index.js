@@ -24,6 +24,7 @@ const ProjectModule = (function() {
             /* participants - predefined array of participants */
             /* pricing - predefined object (keyvalue collection) of pricing */
             init(participants, pricing) {
+                this.isBusy = true;
                 if (!participants || !pricing) return;
                 this.participants = Array.isArray(participants) ? participants : [];
                 this.pricing = typeof pricing === 'object' ? pricing : {};
@@ -38,7 +39,7 @@ const ProjectModule = (function() {
                 if (this.isBusy) return false;
                 this.isBusy = true;
                 setTimeout(() => {
-                    const found = this.participants.find(functor);
+                    let found = this.participants.find(functor);
                     if (!found) found = null;
                     this.isBusy = false;
                     callbackFunction(found);
@@ -56,7 +57,7 @@ const ProjectModule = (function() {
                     const found = this.participants.filter(functor);
                     this.isBusy = false;
                     callbackFunction(found);
-                })
+                });
 
             },
 
@@ -98,7 +99,7 @@ const ProjectModule = (function() {
                         this.isBusy = false;
                         callbackFunction(obj[0]);
                     }
-                })
+                });
             },
 
             /* Extends this.pricing with new field or change existing */
@@ -144,5 +145,5 @@ const ProjectModule = (function() {
 module.exports = {
     firstName: 'Maksim',
     lastName: 'Shevjakov',
-    task: ProjectModule.getInstance()
+    task: ProjectModule
 }
