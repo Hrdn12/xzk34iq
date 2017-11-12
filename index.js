@@ -118,8 +118,7 @@ const ProjectModule = (function() {
             /* periodInDays, has type number, one day is equal 8 working hours */
             calculateSalary(periodInDays) {
                 let summ = 0;
-                const hours = days * 8;
-
+                const hours = periodInDays * 8;
                 for (let i = 0; i < this.participants.length; i++) {
                     let arr = this.participants;
                     if (!this.pricing[arr[i].seniorityLevel]) {
@@ -145,5 +144,5 @@ const ProjectModule = (function() {
 module.exports = {
     firstName: 'Maksim',
     lastName: 'Shevjakov',
-    task: ProjectModule
+    task: ProjectModule.getInstance()
 }
