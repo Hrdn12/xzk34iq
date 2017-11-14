@@ -87,10 +87,8 @@ const ProjectModule = (function() {
                 if (this.isBusy) return false;
                 this.isBusy = true;
                 setTimeout(() => {
-                    const found = this.participants.findIndex(obj => {
-                        if (JSON.stringify(obj) === JSON.stringify(participantObject)) return true;
-                        return false;
-                    });
+                    let removedParticipant = null;
+                    const found = this.participants.indexOf(participantObject);
                     if (found === -1) {
                         this.isBusy = false;
                         callbackFunction(null);
